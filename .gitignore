@@ -1,0 +1,14 @@
+*.iml
+.gradle
+.idea
+local.properties
+build/
+.DS_Store
+*.jks
+*.keystore
+.classpath
+.project
+.settings/
+bin/
+gen/
+proguard/
