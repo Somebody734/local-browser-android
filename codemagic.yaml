@@ -1,0 +1,36 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+    instance_type: mac_mini_m2
+    max_build_duration: 120
+    environment:
+      android_sdk: 34
+      java: 11
+    cache:
+      cache_paths:
+        - ~/.gradle/caches
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+    scripts:
+      - name: Set up Android SDK
+        script: |
+          echo $ANDROID_SDK_ROOT
+          echo $JAVA_HOME
+      - name: Build APK
+        script: |
+          cd $FCI_BUILD_DIR
+          ./gradlew assembleRelease
+      - name: Test
+        script: |
+          cd $FCI_BUILD_DIR
+          ./gradlew test
+    artifacts:
+      - build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com
