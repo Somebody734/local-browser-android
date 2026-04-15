@@ -32,4 +32,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - your-email@example.com
+          - euan.obrien@hoodriver.k12.or.us
