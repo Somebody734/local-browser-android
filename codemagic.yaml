@@ -15,10 +15,10 @@ workflows:
         - pattern: main
           include: true
     scripts:
-      - name: Set up Android SDK
+      - name: Generate Gradle Wrapper
         script: |
-          echo $ANDROID_SDK_ROOT
-          echo $JAVA_HOME
+          cd $FCI_BUILD_DIR
+          gradle wrapper --gradle-version 8.1
       - name: Build APK
         script: |
           cd $FCI_BUILD_DIR
@@ -32,4 +32,4 @@ workflows:
     publishing:
       email:
         recipients:
-          - euan.obrien@hoodriver.k12.or.us
+          - your-email@example.com
