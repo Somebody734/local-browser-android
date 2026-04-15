@@ -27,7 +27,7 @@ class LocalWebServer(port: Int) : NanoHTTPD(port) {
     }
 
     private fun serveJs(content: String): Response {
-        return newFixedLengthResponse(Status.APPLICATION_JSON, "application/javascript", content)
+        return newFixedLengthResponse(Status.OK, "application/javascript", content)
     }
 
     private fun getHomePage(): String {
